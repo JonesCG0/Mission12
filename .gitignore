@@ -1,5 +1,13 @@
 .claude
 .vs/
-.gitignore
 *.log
-*.tmp 
+*.tmp
+
+# .NET build output
+bin/
+obj/
+
+# Node dependencies
+node_modules/
+dist/
+dist-ssr/

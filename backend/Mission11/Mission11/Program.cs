@@ -10,7 +10,10 @@ builder.Services.AddDbContext<BookstoreContext>(options =>
 
 builder.Services.AddCors(options =>
     options.AddPolicy("AllowReact", policy =>
-        policy.WithOrigins("http://localhost:5173")
+        policy.WithOrigins(
+              "http://localhost:5173",
+              "https://wonderful-wave-08e99971e.6.azurestaticapps.net"
+          )
               .AllowAnyHeader()
               .AllowAnyMethod()));
 

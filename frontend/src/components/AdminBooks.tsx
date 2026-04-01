@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import type { Book } from '../types/Book';
+import API_URL from '../API/BooksAPI';
 
-const API = 'https://localhost:7139/api/books';
+const API = `${API_URL}/api/books`;
 
 const emptyBook: Omit<Book, 'bookId'> = {
   title: '',

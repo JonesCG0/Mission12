@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Book } from '../types/Book';
 import { useCart } from '../context/CartContext';
+import API_URL from '../API/BooksAPI';
 
 function BookList() {
   // ── Book list state ────────────────────────────────────────────────────────
@@ -26,7 +27,7 @@ function BookList() {
 
   // ── Fetch categories once on mount ────────────────────────────────────────
   useEffect(() => {
-    fetch('https://localhost:7139/api/books/categories')
+    fetch(`${API_URL}/api/books/categories`)
       .then((res) => res.json())
       .then((data: string[]) => setCategories(data))
       .catch((err) => console.error('Error fetching categories:', err));
@@ -39,7 +40,7 @@ function BookList() {
       : '';
 
     fetch(
-      `https://localhost:7139/api/books?pageNum=${pageNum}&pageSize=${pageSize}&sortOrder=${sortOrder}${categoryParam}`
+      `${API_URL}/api/books?pageNum=${pageNum}&pageSize=${pageSize}&sortOrder=${sortOrder}${categoryParam}`
     )
       .then((res) => res.json())
       .then((data) => {
